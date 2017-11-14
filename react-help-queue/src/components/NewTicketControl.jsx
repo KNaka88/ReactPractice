@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import NewTicketForm from "./NewTicketForm";
+import PropTypes from 'prop-types';
 
 class NewTicketControl extends Component {
   constructor(props) {
     super(props);
+    this.showForm = this.showForm.bind(this);
+    this.hideForm = this.hideForm.bind(this);
     this.state = {formVisibleOnPage: false};
-    this.handleDisplayingNewTicketForm = this.handleDisplayingNewTicketForm.bind(this);
   }
 
-  handleDisplayingNewTicketForm(event) {
+  showForm() {
     this.setState({formVisibleOnPage: true});
+  }
+
+  hideForm() {
+    this.setState({formVisibleOnPage: false});
   }
 
   render() {
@@ -17,9 +23,12 @@ class NewTicketControl extends Component {
     let formAreaContent = null;
 
     if (formVisibleOnPage) {
-        formAreaContent = <NewTicketForm />
+        formAreaContent = <NewTicketForm
+                            onNewTicketCreation={this.props.onNewTicketCreation}
+                            hideFormAfterSubmission = {this.hideForm}
+                          />
     } else {
-      formAreaContent = <button onClick={this.handleDisplayingNewTicketForm}>Request Help</button>;
+      formAreaContent = <button onClick={this.showForm}>Request Help</button>;
     }
 
     return (
@@ -28,6 +37,10 @@ class NewTicketControl extends Component {
       </div>
     );
   }
+}
+
+NewTicketControl.propTypes = {
+  onNewTicketCreation: PropTypes.func
 }
 
 export default NewTicketControl;
