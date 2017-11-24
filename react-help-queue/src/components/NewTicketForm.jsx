@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Ticket from "../models/Ticket.js";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class NewTicketForm extends Component {
   constructor(props) {
@@ -25,18 +25,18 @@ class NewTicketForm extends Component {
             type="text"
             id="names"
             placeholder="Pair Names"
-            />
+          />
           <input
             ref="_location"
             type="text"
             id="location"
             placeholder="Location"
-            />
+          />
           <textarea
             ref="_issue"
             id="issue"
             placeholder="Describe your issue."
-            />
+          />
           <button type="submit">Help!</button>
         </form>
       </div>
@@ -47,7 +47,7 @@ class NewTicketForm extends Component {
 NewTicketForm.propTypes = {
   onNewTicketCreation: PropTypes.func,
   hideFormAfterSubmission: PropTypes.func
-}
+};
 
 
 export default NewTicketForm;

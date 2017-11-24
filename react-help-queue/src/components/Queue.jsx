@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import TicketList from './TicketList';
-import NewTicketControl from './NewTicketControl';
+import React, { Component } from "react";
+import TicketList from "./TicketList";
+import NewTicketControl from "./NewTicketControl";
 
 class Queue extends Component {
 
